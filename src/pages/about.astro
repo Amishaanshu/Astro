@@ -1,0 +1,101 @@
+---
+import MainLayout from "../layouts/main-layout.astro";
+
+
+---
+<MainLayout>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #ffffff;
+        }
+    
+        .container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+    
+        header {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+    
+        .flex-container {
+          display: flex;
+          flex-wrap: wrap;
+          margin-bottom: 30px;
+        }
+    
+        .col {
+          flex: 1;
+          padding: 10px;
+        }
+    
+        ul {
+          list-style-type: disc;
+          padding-left: 20px;
+        }
+    
+        strong {
+          font-weight: bold;
+        }
+    
+        @media (max-width: 768px) {
+          .col {
+            flex: 100%;
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <header>
+          <h1 class="">About Us</h1>
+        </header>
+        
+        <section>
+          <div class="flex-container">
+            <div class="col">
+              <h2>Our Mission</h2>
+              <p>
+                At our company, our mission is to empower individuals and businesses by providing innovative solutions that simplify their digital journey. We believe that technology should be accessible to everyone, and we strive to make it easier for you to navigate the digital landscape.
+              </p>
+            </div>
+            <div class="col">
+              <h2>What We Offer</h2>
+              <ul>
+                <li><strong>Cutting-Edge Technology:</strong> We stay at the forefront of technological advancements to offer you the latest and most effective tools and solutions. Our team of experts works tirelessly to ensure that our offerings are always ahead of the curve.</li>
+                <li><strong>Exceptional Customer Service:</strong> We are committed to delivering top-notch customer service. Our friendly and knowledgeable support team is here to assist you every step of the way. We value your satisfaction and strive to exceed your expectations.</li>
+                <li><strong>Innovation and Creativity:</strong> We foster an environment of innovation and creativity. Our talented team is continuously brainstorming and developing new ideas to provide you with unique and groundbreaking solutions.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+    
+        <section>
+          <div class="flex-container">
+            <div class="col">
+              <h2>Our Values</h2>
+              <ul>
+                <li><strong>Integrity:</strong> We conduct our business with the highest level of integrity, transparency, and honesty. We believe in building trust with our clients and partners by upholding strong ethical standards.</li>
+                <li><strong>Collaboration:</strong> We believe in the power of collaboration. By working together with our clients and partners, we can achieve greater success and create meaningful impact.</li>
+                <li><strong>Continuous Improvement:</strong> We are constantly learning and evolving. We embrace change and continuously seek ways to improve our products, services, and processes to better serve you.</li>
+              </ul>
+            </div>
+            <div class="col">
+              <h2>Get in Touch</h2>
+              <p>
+                We would love to hear from you! If you have any questions, feedback, or inquiries, please don't hesitate to reach out to our team. You can find our contact information on the <a href="/contact"><strong>Contact</strong></a> page.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </body>
+    </html>
+
+
+</MainLayout>

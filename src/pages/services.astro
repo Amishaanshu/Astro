@@ -1,0 +1,89 @@
+---
+import MainLayout from "../layouts/main-layout.astro";
+import money from "/money.png"
+import business from "/business.png"
+import time from "/time.png"
+
+---
+<MainLayout>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #ffffff;
+        }
+    
+        .container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+        }
+    
+        header {
+          text-align: center;
+          margin-bottom: 30px;
+        }
+    
+        .services {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          margin-bottom: 30px;
+        }
+    
+        .service {
+          width: 300px;
+          padding: 20px;
+          text-align: center;
+          margin: 20px;
+          background-color: #f1f1f1;
+          border-radius: 5px;
+        }
+    
+        .service img {
+            display: block;
+  margin: 0 auto;
+          max-width: 100px;
+          margin-bottom: 20px;
+        }
+    
+        @media (max-width: 768px) {
+          .service {
+            width: 100%;
+          }
+        }
+      </style>
+    <body>
+        <div class="container">
+          <header>
+            <h1>Our Services</h1>
+          </header>
+          <section class="services">
+            <div class="service">
+              <img src={money} alt="Money Transfer Icon">
+              <h2>Money Transfers</h2>
+              <p>
+                Easily send money to individuals anywhere in the world with our secure and reliable money transfer service. Enjoy fast and hassle-free transactions at competitive exchange rates.
+              </p>
+            </div>
+            <div class="service">
+              <img src={business} alt="Business Payments Icon">
+              <h2>Business Payments</h2>
+              <p>
+                Streamline your business payments with our comprehensive payment solutions. Make secure payments to suppliers, employees, and partners, ensuring timely transactions and accurate record-keeping.
+              </p>
+            </div>
+            <div class="service">
+              <img src={time} alt="Real-time Tracking Icon">
+              <h2>Real-time Tracking</h2>
+              <p>
+                Stay informed with real-time tracking of your payments. Monitor the status and progress of your transactions, ensuring transparency and peace of mind throughout the process.
+              </p>
+            </div>
+          </section>
+        </div>
+      </body>
+
+
+</MainLayout>

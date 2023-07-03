@@ -1,0 +1,108 @@
+---
+import money from "/money.png"
+import paint from "/paint.png"
+---
+<div
+  class="relative mx-12 flex flex-col items-center justify-center gap-12 xl:flex-row xl:gap-36"
+>
+  <div class="w-full xl:w-1/2">
+    <h1 class="text-xl">
+        Simplify Cross-border Payments using <span id="scribble" class="font-bold"
+        >FinEdge!</span>
+    </h1>
+    <div class="relative">
+        <svg class="absolute h-full w-full overflow-visible">
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style={{ stopColor: "#DC3A2B", stopOpacity: 1 }}
+                ></stop>
+                <stop offset="100%" style={{ stopColor: "#E18510", stopOpacity: 1 }}
+                ></stop>
+              </linearGradient>
+            </defs>
+            <path
+              id="border-path"
+              fill="none"
+              stroke="url(#gradient)"
+              stroke-width="4"></path>
+          </svg>
+     <p id="anim-p" class="p-6 text-main">
+        FinEdge, the cutting-edge cross-border payments app designed to revolutionize the way you send and receive money globally. With its smart and innovative features, FinEdge simplifies the complexities of international transactions, empowering individuals and businesses alike. <br/>
+        Experience the future of seamless financial connectivity as FinEdge leverages advanced encryption technology to ensure lightning-fast and secure transactions, eliminating the barriers that hinder traditional cross-border payments.<br/>
+         Say goodbye to hidden fees and opaque exchange rates, as FinEdge provides transparent and competitive rates, maximizing the value of your international transfers. Our dedicated 24/7 customer support team is always at your fingertips, ready to assist you every step of the way.<br/>
+         Join the FinEdge community today and unlock a world of effortless cross-border payments like never before. Embrace the power of financial freedom with FinEdge – where innovation meets simplicity.
+        </p>
+    </div>
+    <div class="flex justify-center pt-12 text-center text-main text-content mb-12 xl:gap-16">
+        <div class="w-32">
+            <h2>Payments</h2>
+            <p id="payment-counter" class="text-xl font-bold">1c</p>
+        </div>
+        <div class="w-32">
+            <h2>User Registered</h2>
+            <p id="user-counter" class="text-xl font-bold">1.2m</p>
+        </div>
+        <div class="w-32">
+            <h2>Countries</h2>
+            <p id="country-counter" class="text-xl font-bold">50</p>
+        </div>
+    </div>
+    </div>
+    <div class="relative ">
+      <img class="h-full"src={money} alt="">
+      <div class="absolute bottom-0 right-0 translate-y-1/4">
+        <img src={paint} alt="paint">
+      </div>
+    </div>
+</div>
+<div class="mt-12 h-2 w-full bg-black"></div>
+<style>
+    #border-path {
+      animation: draw 1s forwards 1s ease-out;
+    }
+  
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+<script>
+    function updatePath() {
+        const textMain=document.querySelector("#anim-p")as HTMLElement
+        const path=document.querySelector("#border-path")as SVGPathElement
+        if(textMain && path){
+            path.setAttribute("d",`M0,0 V${textMain.offsetHeight} H${textMain.offsetWidth} v${
+          textMain.offsetHeight / 2
+        }`)
+        const pathLength = path.getTotalLength()
+
+path.style.strokeDasharray = pathLength.toString()
+path.style.strokeDashoffset = pathLength.toString()
+        }
+    }
+    function incrementCounter(
+    selector: string,
+    current: number,
+    target: number,
+    duration: number,
+    letter: string = ""
+  ) {
+    let counter = document.getElementById(selector)
+    let stepTime = Math.abs(Math.floor(duration / target))
+    if (current < target && counter) {
+      current++
+      counter.innerText = current.toString() + letter
+      setTimeout(
+        () => incrementCounter(selector, current, target, duration, letter),
+        stepTime
+      )
+    }
+  }
+  incrementCounter("payment-counter", 0, 10, 1000,"c")
+  incrementCounter("user-counter", 0, 90, 1000, "k")
+  incrementCounter("country-counter", 0, 250, 1000)
+    window.addEventListener("DOMContentLoaded",updatePath)
+    window.addEventListener("resize",updatePath)
+</script>
+   
